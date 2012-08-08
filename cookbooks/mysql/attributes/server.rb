@@ -64,7 +64,7 @@ when "windows"
   default['mysql']['mysqladmin_bin']          = "#{mysql['bin_dir']}\\mysqladmin"
   default['mysql']['mysql_bin']               = "#{mysql['bin_dir']}\\mysql"
 
-  default['mysql']['conf_dir']                = "#{mysql['basedir']}"
+  default['mysql']['conf_dir']                = "#{ENV['SYSTEMDRIVE']}\\Program Files (x86)\\MySQL\\#{mysql['package_name']}"
   default['mysql']['old_passwords']           = 0
   default['mysql']['grants_path']             = "#{mysql['conf_dir']}\\grants.sql"
 else
