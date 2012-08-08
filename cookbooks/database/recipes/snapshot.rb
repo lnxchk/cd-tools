@@ -21,10 +21,10 @@ include_recipe "aws"
 include_recipe "xfs"
 
 %w{ebs_vol_dev db_role app_environment username password aws_access_key_id aws_secret_access_key snapshots_to_keep volume_id}.collect do |key|
-  Chef::Application.fatal!("Required db_snapshot configuration #{key} not found.", -47) unless node.db_snapshot.has_key? key
+  Chef::Application.fatal!("Required db_snapshot configuration #{key} not found.", -47) unless node['db_snapshot'].has_key? key
 end
 
-connection_info = {:host => "localhost", :username => node.db_snapshot.username, :password => node.db_snapshot.password}
+connection_info = {:host => "localhost", :username => node['db_snapshot']['username'], :password => node['db_snapshot']['password']}
 
 mysql_database "locking tables for #{node.db_snapshot.app_environment}" do
   connection connection_info
