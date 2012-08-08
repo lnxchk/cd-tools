@@ -19,13 +19,13 @@
 
 case platform
 when 'windows'
-  set[:git][:version] = "1.7.9-preview20120201"
-  set[:git][:url] = "http://msysgit.googlecode.com/files/Git-#{node[:git][:version]}.exe"
-  set[:git][:checksum] = "0627394709375140d1e54e923983d259a60f9d8e"
+  set['git']['version'] = "1.7.9-preview20120201"
+  set['git']['url'] = "http://msysgit.googlecode.com/files/Git-#{node['git']['version']}.exe"
+  set['git']['checksum'] = "0627394709375140d1e54e923983d259a60f9d8e"
 when "mac_os_x"
-  default[:git][:osx_dmg][:app_name]    = "git-1.7.9.4-intel-universal-snow-leopard"
-  default[:git][:osx_dmg][:volumes_dir] = "Git 1.7.9.4 Snow Leopard Intel Universal"
-  default[:git][:osx_dmg][:package_id]  = "GitOSX.Installer.git1794.git.pkg"
-  default[:git][:osx_dmg][:url]         = "http://git-osx-installer.googlecode.com/files/git-1.7.9.4-intel-universal-snow-leopard.dmg"
-  default[:git][:osx_dmg][:checksum]    = "661c3fcf765572d3978df17c7636d59e"
+  default['git']['osx_dmg']['app_name']    = "git-1.7.9.4-intel-universal-snow-leopard"
+  default['git']['osx_dmg']['volumes_dir'] = "Git 1.7.9.4 Snow Leopard Intel Universal"
+  default['git']['osx_dmg']['package_id']  = "GitOSX.Installer.git1794.git.pkg"
+  default['git']['osx_dmg']['url']         = "http://git-osx-installer.googlecode.com/files/git-1.7.9.4-intel-universal-snow-leopard.dmg"
+  default['git']['osx_dmg']['checksum']    = "661c3fcf765572d3978df17c7636d59e"
 end
