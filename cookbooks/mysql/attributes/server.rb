@@ -64,7 +64,7 @@ when "windows"
   default['mysql']['mysqladmin_bin']          = "#{mysql['bin_dir']}\\mysqladmin"
   default['mysql']['mysql_bin']               = "#{mysql['bin_dir']}\\mysql"
 
-  default['mysql']['conf_dir']                = "#{mysql['basedir']}"
+  default['mysql']['conf_dir']                = "#{ENV['SYSTEMDRIVE']}\\Program Files (x86)\\MySQL\\#{mysql['package_name']}"
   default['mysql']['old_passwords']           = 0
   default['mysql']['grants_path']             = "#{mysql['conf_dir']}\\grants.sql"
 else
@@ -90,7 +90,7 @@ if attribute?('ec2')
   default['mysql']['ebs_vol_size'] = 50
 end
 
-default['mysql']['use_upstart'] = platform?("ubuntu") && node.platform_version.to_f >= 10.04
+default['mysql']['use_upstart'] = platform?("ubuntu") && node['platform_version'].to_f >= 10.04
 
 default['mysql']['allow_remote_root']               = false
 default['mysql']['tunable']['back_log']             = "128"
